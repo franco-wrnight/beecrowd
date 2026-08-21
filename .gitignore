@@ -1,21 +1,10 @@
-cat <> .gitignore
-*.exe
+cat << 'EOF' > .gitignore
+build/
 *.out
+*.exe
 *.o
 *.obj
 *.bin
-*.app
-*.dSYM/
-
-cat << 'EOF' >> .gitignore
-/[0-9]*
-/*
-!/*.*
-!/.gitignore
-!/README.md
-!/Makefile
-EOF
-
-cmake-build-*/
 .vscode/
-EOT
+cmake-build-*/
+EOF
