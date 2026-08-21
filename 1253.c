@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 #define MAXLEN 55
 
 void cipherFoo(char *s, int shift)
 {
     for (int i = 0; s[i] != '\0'; i++)
     {
-        
+        if(isalpha(s[i]) == true){
+            
+        }
     }
 }
 
