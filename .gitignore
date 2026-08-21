@@ -7,6 +7,14 @@ cat <> .gitignore
 *.app
 *.dSYM/
 
+cat << 'EOF' >> .gitignore
+/[0-9]*
+/*
+!/*.*
+!/.gitignore
+!/README.md
+!/Makefile
+EOF
 
 cmake-build-*/
 .vscode/
