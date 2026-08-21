@@ -9,9 +9,6 @@ int computeDivisorOfNumberSolutionOfProblem(int c){
 	return c;
 }
 
-
-
-
 int main()
 {
     // compute divisors
