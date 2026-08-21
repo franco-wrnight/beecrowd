@@ -1,0 +1,13 @@
+cat <> .gitignore
+*.exe
+*.out
+*.o
+*.obj
+*.bin
+*.app
+*.dSYM/
+
+
+cmake-build-*/
+.vscode/
+EOT
