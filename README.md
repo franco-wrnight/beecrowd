@@ -19,10 +19,10 @@ Soluciones en C y C++ para problemas de Beecrowd.
 └── README.md
 ```
 
-## Requisitos
+## Requisitos (para Windows, MINGW)
 
-- `gcc` (soporte C17)
-- `g++` (soporte C++20)
+- `gcc` 
+- `g++` 
 - `make`
 
 ## Uso
