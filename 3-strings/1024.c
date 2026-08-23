@@ -1,70 +1,59 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#define MAXLEN 1005
 
-int firstFunc(char *s)
+#define MAXLEN 10005
+
+void firstEncryption(char *s)
 {
-    for (int i = 0; s[i] != '\0'; i++)
+    for (size_t i = 0; s[i] != '\0'; i++)
     {
-        if (isupper(s[i]) || islower(s[i]))
-        {
-            s[i] = s[i] + 3;
-        }
+        if (isalpha((unsigned char)s[i]))
+            s[i] += 3;
     }
-    return *s;
 }
 
-void secondFunc(char *s)
+void secondEncryption(char *s)
 {
-    char temp[MAXLEN];
-    int last = 0;
-    for (int i = strlen(s) - 1; i >= 0; i--)
-    {
-        temp[last] = s[i];
-        last++;
-    }
-    temp[last] = '\0';
+    size_t len = strlen(s);
+    char t[len + 1];
 
-    strcpy(s, temp);
+    for (size_t i = 0; i < len; i++)
+        t[i] = s[len - 1 - i];
+
+    t[len] = '\0';
+
+    strcpy(s, t);
 }
 
-int thirdFunc(char *s)
+void thirdEncryption(char *s)
 {
-    int half_len_s = strlen(s) / 2;
-    for (int i = half_len_s; s[i] != '\0'; i++)
-    {
-        s[i] = s[i] - 1;
-    }
-    return *s;
+    size_t p = strlen(s) / 2;
+
+    for (size_t i = p; s[i] != '\0'; i++)
+        s[i]--;
 }
 
-int main(void)
+int main()
 {
-    int t = 0;
-    char line[1005];
-    if (scanf("%d", &t) != 1)
+    int tests;
+
+    scanf("%d", &tests);
+    getchar();
+
+    for (int i = 0; i < tests; i++)
     {
-        return 0;
-    }
-    while (getchar() != '\n')
-    {
-        ;
-    }
+        char s[MAXLEN];
 
-    while (t--)
-    {
-        if (fgets(line, sizeof(line), stdin) != NULL)
-        {
+        fgets(s, MAXLEN, stdin);
+        s[strcspn(s, "\n")] = '\0';
 
-            line[strcspn(line, "\n")] = '\0';
+        firstEncryption(s);
+        secondEncryption(s);
+        thirdEncryption(s);
 
-            firstFunc(line);
-            secondFunc(line);
-            thirdFunc(line);
-
-            printf("%s\n", line);
-        }
+        fputs(s, stdout);
+        putchar('\n');
     }
 
     return 0;
